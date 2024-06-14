@@ -10,10 +10,11 @@ gradient = SubResource("Gradient_eeo16")
 fill_from = Vector2(0.412844, 0.96789)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rdhs"]
-size = Vector2(10, 20)
+size = Vector2(9.5, 20)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(4, 4)
+disable_mode = 1
 script = ExtResource("1_gdsdw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,3 +25,11 @@ texture = SubResource("GradientTexture2D_51h3k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_5rdhs")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5rdhs")
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

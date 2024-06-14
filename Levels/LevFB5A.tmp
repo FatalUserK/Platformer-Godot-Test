@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c54xcs7cb34du"]
+
+[ext_resource type="PackedScene" uid="uid://b7nkpvtoe1skw" path="res://Objects/Player.tscn" id="1_8ypq1"]
+[ext_resource type="PackedScene" uid="uid://c4r1upuxhy5rv" path="res://Objects/Block.tscn" id="2_kogfk"]
+[ext_resource type="PackedScene" uid="uid://ch4880i8grds1" path="res://Objects/BlockFake.tscn" id="3_85kyd"]
+[ext_resource type="PackedScene" uid="uid://bxnpsel7ip80j" path="res://Objects/Platform.tscn" id="4_odhyo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Platform" parent="Node" instance=ExtResource("4_odhyo")]
+visible = false
+position = Vector2(6, -8)
+
+[node name="Block" parent="Node" instance=ExtResource("2_kogfk")]
+position = Vector2(-120, 60)
+
+[node name="Block2" parent="Node" instance=ExtResource("2_kogfk")]
+position = Vector2(53, 352)
+scale = Vector2(9.76562, 9.76563)
+
+[node name="Block3" parent="Node" instance=ExtResource("2_kogfk")]
+position = Vector2(120, 60)
+
+[node name="Fake" parent="Node" instance=ExtResource("3_85kyd")]
+visible = false
+position = Vector2(-11, 60)
+
+[node name="Drop-away" parent="Node" instance=ExtResource("3_85kyd")]
+z_index = 2
+position = Vector2(4, 60)
+vanish_on_start = true
+
+[node name="Player" parent="." instance=ExtResource("1_8ypq1")]
+z_index = 1
+disable_player_frames = 0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

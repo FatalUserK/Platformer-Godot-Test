@@ -1,11 +1,304 @@
-[gd_scene load_steps=2 format=3 uid="uid://c54xcs7cb34du"]
+[gd_scene load_steps=11 format=3 uid="uid://c54xcs7cb34du"]
 
 [ext_resource type="PackedScene" uid="uid://b7nkpvtoe1skw" path="res://Objects/Player.tscn" id="1_8ypq1"]
+[ext_resource type="PackedScene" uid="uid://c4r1upuxhy5rv" path="res://Objects/Level Geometry/Block.tscn" id="2_kogfk"]
+[ext_resource type="PackedScene" uid="uid://ch4880i8grds1" path="res://Objects/Level Geometry/BlockFake.tscn" id="3_85kyd"]
+[ext_resource type="PackedScene" uid="uid://bxnpsel7ip80j" path="res://Objects/Level Geometry/Platform.tscn" id="4_odhyo"]
+[ext_resource type="PackedScene" uid="uid://vofhbyb6dw8g" path="res://Objects/Background.tscn" id="5_shdss"]
+[ext_resource type="PackedScene" uid="uid://drjm70m8q6qow" path="res://Objects/Interactive/Magma.tscn" id="6_waqbb"]
+[ext_resource type="PackedScene" uid="uid://bney2awm6pcac" path="res://Objects/Interactive/Rising Magma Platform.tscn" id="7_the4b"]
+
+[sub_resource type="Animation" id="Animation_kvew2"]
+resource_name = "Rise_and_Fall"
+length = 2.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0, 0),
+"points": PackedFloat32Array(969, -0.25, 0, 0.25, 0, 969, 0, 0, 0, 0, 969, -0.25, 0, 0.25, 0, 969, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6, 1.8, 2.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0, 0),
+"points": PackedFloat32Array(167, -0.25, 0, 0.25, 0, 83, 0, 0, 0, 0, -223, -0.25, 0, 0.25, 0, -313, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6, 1.8, 2.4)
+}
+
+[sub_resource type="Animation" id="Animation_u1qwc"]
+length = 7.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(969, -0.25, 0, 0.25, 0, 969, -0.25, 0, 0.25, 0, 969, -0.25, 0, 0.25, 0, 969, -0.25, 0, 0.25, 0, 969, -0.25, 0, 0.25, 0, 969, -0.25, 0, 0.25, 0, 969, -0.25, 0, 0.25, 0, 969, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(167, -0.25, 0, 0.25, 0, 38, -0.25, 0, 0.25, 0, -182, -0.25, 0, 0.25, 0, -319, -0.25, 0, 0.25, 0, -296, -0.25, 0, 0.25, 0, -182, -0.25, 0, 0.25, 0, 38, -0.25, 0, 0.25, 0, 167, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bluy"]
+_data = {
+"RESET": SubResource("Animation_u1qwc"),
+"Rise_and_Fall": SubResource("Animation_kvew2")
+}
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Level" type="Node" parent="."]
+
+[node name="Hazards" type="Node" parent="Level"]
+
+[node name="Magma" parent="Level/Hazards" instance=ExtResource("6_waqbb")]
+position = Vector2(492.5, 509.5)
+scale = Vector2(4.64063, 8.95313)
+
+[node name="Magma2" parent="Level/Hazards" instance=ExtResource("6_waqbb")]
+position = Vector2(1211.63, 454)
+scale = Vector2(15.8633, 8.95313)
+
+[node name="Level Geometry" type="Node" parent="Level"]
+
+[node name="Block6" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(739, 362.375)
+scale = Vector2(2.75781, 9.51172)
+
+[node name="Block7" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(708, 399)
+scale = Vector2(2.75781, 9.51172)
+
+[node name="Block8" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(785, 122.812)
+scale = Vector2(2.75781, 1.63086)
+
+[node name="Block9" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(809, 290)
+scale = Vector2(2.75781, 4.33398)
+
+[node name="Block27" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(792, 227)
+scale = Vector2(3.6289, 1.96094)
+
+[node name="Block28" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1199.06, 219.875)
+scale = Vector2(3.6289, 1.96094)
+
+[node name="Block40" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1106, 95.75)
+scale = Vector2(1.43945, 3.24609)
+
+[node name="Block41" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1089.06, -65.625)
+scale = Vector2(1.43945, 6.04297)
+
+[node name="Block43" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1076, -197)
+scale = Vector2(1.43945, 3.92773)
+
+[node name="Block42" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1142.06, -125.625)
+scale = Vector2(1.43945, 5.38672)
+
+[node name="Block29" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1235.06, 320.875)
+scale = Vector2(3.6289, 1.96094)
+
+[node name="Block30" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1291.06, 361.875)
+scale = Vector2(3.6289, 1.96094)
+
+[node name="Block31" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1344.06, 380.875)
+scale = Vector2(3.6289, 1.96094)
+
+[node name="Block32" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1393.06, 485.875)
+scale = Vector2(3.6289, 1.96094)
+
+[node name="Block33" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1377.06, 658.5)
+scale = Vector2(3.6289, 3.82422)
+
+[node name="Block34" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1047.53, 844.672)
+scale = Vector2(2.50195, 3.82422)
+
+[node name="Block35" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1032.53, 691.672)
+scale = Vector2(1.73535, 3.82422)
+
+[node name="Block36" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1014.53, 779.672)
+scale = Vector2(1.73535, 3.82422)
+
+[node name="Block37" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1022.53, 540.672)
+scale = Vector2(0.765625, 2.07324)
+
+[node name="Block39" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1005.53, 446.672)
+scale = Vector2(0.429687, 1.55225)
+
+[node name="Block38" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(1001.53, 554.672)
+scale = Vector2(0.765625, 2.07324)
+
+[node name="Block26" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(825, 474)
+scale = Vector2(1.97266, 4.33398)
+
+[node name="Block25" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(3055.1, 1500.52)
+scale = Vector2(7.60552, 18.7834)
+
+[node name="Block23" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(662, 291)
+scale = Vector2(1.95703, 3.43262)
+
+[node name="Block24" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(662, 325)
+scale = Vector2(1.95703, 3.43262)
+
+[node name="Block10" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(618, 514.688)
+scale = Vector2(2.75781, 9.74024)
+
+[node name="Block19" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(334, 600)
+scale = Vector2(2.75781, 9.51172)
+
+[node name="Block21" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(352, 826)
+scale = Vector2(2.75781, 9.51172)
+
+[node name="Block22" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(604, 898)
+scale = Vector2(2.75781, 9.51172)
+
+[node name="Block20" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(580, 505.812)
+scale = Vector2(2.75781, 4.00586)
+
+[node name="Block4" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(-784, 13.5)
+scale = Vector2(17.6484, 24.3594)
+
+[node name="Block5" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(-289, -758)
+scale = Vector2(34.0625, 6.80469)
+
+[node name="Block" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(-376, -175)
+scale = Vector2(5.46875, 11.4062)
+
+[node name="Block2" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(-253, -61)
+scale = Vector2(3.78125, 2.5625)
+
+[node name="Block3" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(-240, -487.5)
+scale = Vector2(2.9375, 3.32812)
+
+[node name="Block11" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(92, -568)
+scale = Vector2(9.25, 3.32812)
+
+[node name="Block12" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(332, -534)
+scale = Vector2(9.25, 3.32812)
+
+[node name="Block13" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(743, -554)
+scale = Vector2(4.375, 3.32812)
+
+[node name="Block14" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(770.5, -362.75)
+scale = Vector2(3.14063, 4.96094)
+
+[node name="Block15" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(771.5, -398)
+scale = Vector2(3.76563, 4.96094)
+
+[node name="Block16" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(804.75, -284.438)
+scale = Vector2(2.50781, 2.85742)
+
+[node name="Block18" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(802, -193)
+scale = Vector2(1.61328, 2.85742)
+
+[node name="Block17" parent="Level/Level Geometry" instance=ExtResource("2_kogfk")]
+position = Vector2(776.75, -135.937)
+scale = Vector2(1.19531, 2.5293)
+
+[node name="PlayerStart" type="Node" parent="Level"]
+
+[node name="Fake" parent="Level/PlayerStart" instance=ExtResource("5_shdss")]
+position = Vector2(-8, 60)
+
+[node name="Platform" parent="Level/PlayerStart" instance=ExtResource("4_odhyo")]
+visible = false
+position = Vector2(6, -8)
+
+[node name="Block" parent="Level/PlayerStart" instance=ExtResource("2_kogfk")]
+position = Vector2(-120, 60)
+
+[node name="Block2" parent="Level/PlayerStart" instance=ExtResource("2_kogfk")]
+position = Vector2(53, 352)
+scale = Vector2(9.76562, 9.76563)
+
+[node name="Block3" parent="Level/PlayerStart" instance=ExtResource("2_kogfk")]
+position = Vector2(120, 60)
+
+[node name="Drop-away" parent="Level/PlayerStart" instance=ExtResource("3_85kyd")]
+z_index = 2
+position = Vector2(4, 60)
+vanish_on_start = true
+
+[node name="Interactive" type="Node" parent="Level"]
+
+[node name="RisingMagmaPlatform" parent="Level/Interactive" instance=ExtResource("7_the4b")]
+position = Vector2(969, 167)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Interactive/RisingMagmaPlatform"]
+libraries = {
+"": SubResource("AnimationLibrary_3bluy")
+}
+autoplay = "RESET"
+
 [node name="Player" parent="." instance=ExtResource("1_8ypq1")]
-position = Vector2(537, 315)
+z_index = 1
+disable_player_frames = 120
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Player2" parent="." instance=ExtResource("1_8ypq1")]
+visible = false
+z_index = 3
+position = Vector2(796, 119)
+disable_player_frames = -1

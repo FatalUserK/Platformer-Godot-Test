@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bney2awm6pcac"]
+
+[ext_resource type="PackedScene" uid="uid://drjm70m8q6qow" path="res://Objects/Interactive/Magma.tscn" id="1_bmpgr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k7e2"]
+size = Vector2(102, 22)
+
+[sub_resource type="Gradient" id="Gradient_bdamt"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hm32x"]
+gradient = SubResource("Gradient_bdamt")
+
+[node name="RisingMagmaPlatform" type="AnimatableBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7k7e2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.59375, 0.364286)
+texture = SubResource("GradientTexture2D_hm32x")
+
+[node name="Magma" parent="." instance=ExtResource("1_bmpgr")]
+z_index = -1
+position = Vector2(0, 252.75)
+scale = Vector2(0.8125, 7.66406)

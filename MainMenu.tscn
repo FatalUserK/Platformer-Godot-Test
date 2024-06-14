@@ -38,6 +38,7 @@ text = "Options"
 
 [node name="Quit" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 80)
+layout_mode = 0
 offset_left = 361.0
 offset_top = 441.0
 offset_right = 791.0

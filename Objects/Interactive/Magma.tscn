@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://drjm70m8q6qow"]
+
+[sub_resource type="Gradient" id="Gradient_wfvfc"]
+offsets = PackedFloat32Array(0.195751, 0.752656, 0.902883, 0.966616, 1)
+colors = PackedColorArray(1, 0.889596, 0.686855, 1, 1, 0.741176, 0.0823529, 1, 0.949398, 0.556652, 0.0528224, 1, 0.910199, 0.41371, 0.0299466, 1, 0.913725, 0.34902, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fr0ki"]
+gradient = SubResource("Gradient_wfvfc")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jgf1l"]
+a = Vector2(32, -19.6761)
+b = Vector2(-32, -19.6761)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ii0o"]
+size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_1py0b"]
+offsets = PackedFloat32Array(0.616883, 1)
+colors = PackedColorArray(1, 0.741176, 0.0823529, 1, 1, 0.797179, 0.394007, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fqbo7"]
+gradient = SubResource("Gradient_1py0b")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_ctx5c"]
+colors = PackedColorArray(1, 0.741176, 0.0823529, 1, 1, 0.741176, 0.0823529, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pec1m"]
+gradient = SubResource("Gradient_ctx5c")
+
+[node name="Magma" type="Sprite2D"]
+texture_repeat = 2
+position = Vector2(0, 196.5)
+scale = Vector2(1, 7.14063)
+texture = SubResource("GradientTexture2D_fr0ki")
+
+[node name="Catcher" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Catcher"]
+shape = SubResource("SegmentShape2D_jgf1l")
+
+[node name="Area2D" type="Area2D" parent="." groups=["hazard", "magma"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1ii0o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(100, 104)
+scale = Vector2(1, 2.17188)
+texture = SubResource("GradientTexture2D_fqbo7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(100, 35)
+scale = Vector2(1, 0.03125)
+texture = SubResource("GradientTexture2D_pec1m")
