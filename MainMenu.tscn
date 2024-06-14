@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://dexqjmg22yu4x"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_jl0s6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jl0s6")
+
+[node name="Play" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+offset_left = 361.0
+offset_top = 187.0
+offset_right = 791.0
+offset_bottom = 267.0
+text = "Play"
+
+[node name="Level Select" type="Button" parent="."]
+layout_mode = 2
+offset_left = 381.0
+offset_top = 291.0
+offset_right = 771.0
+offset_bottom = 350.0
+text = "Level Select"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 2
+offset_left = 381.0
+offset_top = 357.0
+offset_right = 771.0
+offset_bottom = 415.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 80)
+offset_left = 361.0
+offset_top = 441.0
+offset_right = 791.0
+offset_bottom = 521.0
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Level Select" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
