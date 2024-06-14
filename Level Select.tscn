@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnt6ihsannp2u"]
+
+[ext_resource type="Script" path="res://Level Select.gd" id="1_bakei"]
+[ext_resource type="Texture2D" uid="uid://dryhnfsrwpgtf" path="res://Screenshot 2024-06-14 170854.png" id="2_ldxxo"]
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource("1_bakei")
+
+[node name="Screenshot2024-06-14170854" type="Sprite2D" parent="."]
+position = Vector2(366.625, 257.375)
+scale = Vector2(0.131046, 0.131046)
+texture = ExtResource("2_ldxxo")
+
+[node name="Button" type="Button" parent="Screenshot2024-06-14170854"]
+offset_left = -508.408
+offset_top = -506.5
+offset_right = -371.408
+offset_bottom = -369.5
+scale = Vector2(7.40186, 7.40186)
+text = "Level 1"
+
+[connection signal="pressed" from="Screenshot2024-06-14170854/Button" to="." method="Level1Pressed"]

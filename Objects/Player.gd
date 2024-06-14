@@ -17,6 +17,10 @@ func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 	print_debug("AREA COLLISION DETECTED!!!!!!!!!!!!!!!")
 	if area.is_in_group("magma"):
 		perish()
+	else: if area.is_in_group("LevelFinish"):
+		get_tree().change_scene_to_file("res://MainMenu.tscn")
+	else: if area.is_in_group("Checkpoint"):
+		respawn_point = position
 	pass
 
 func perish(type = "magma"):

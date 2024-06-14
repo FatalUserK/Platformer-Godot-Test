@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf61yvcsnj5p7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qipdx"]
+
+[node name="Area2D" type="Area2D" groups=["Checkpoint"]]
+scale = Vector2(5.51073, 5.51073)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_qipdx")

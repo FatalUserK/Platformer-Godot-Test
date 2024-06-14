@@ -9,7 +9,7 @@ func _on_play_pressed():
 
 
 func _on_level_select_pressed():
-	get_tree().change_scene_to_file("res://Levels/Level Select.tscn")
+	get_tree().change_scene_to_file("res://Level Select.tscn")
 
 
 func _on_options_pressed():

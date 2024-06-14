@@ -17,5 +17,4 @@ texture = SubResource("GradientTexture2D_4v2il")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 visible = false
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6qylm")
